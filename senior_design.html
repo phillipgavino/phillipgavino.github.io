@@ -279,7 +279,7 @@
 			</div>
 			
 			<div class = "photo-gallery">
-			
+				
 				<figure>
 					<img src = "sensor_bot/robot_prototype.jpg" alt="prototype" >
 					<figcaption> Image of the Sensor Bot </figcaption>
@@ -289,35 +289,47 @@
 				
 				<figure>
 					<img src = "sensor_bot/final_design.jpg" alt="Bot CAD design">
-				</div>
+					<figcaption> Image of the Sensor Bot CAD </figcaption>
+				</figure>
+				
+				<p><br></p>
+				
+				<figure>
+					<img src = "sensor_bot/enclosure.png" alt="Jetson Enclosure">
+					<figcaption> Image of the Jetson Enclosure CAD </figcaption>
+				</figure>
+				<video autoplay loop muted>
+					<source src="sensor_bot/collision_senior_design.mp4" type="video/mp4">
+				</video>
+			</div>
 			
+			
+			
+			<script>
+				
+				// add bootstrap table styles to pandoc tables
+				function bootstrapStylePandocTables() {
+					$('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+				}
+				$(document).ready(function () {
+					bootstrapStylePandocTables();
+				});
 				
 				
-				<script>
-					
-					// add bootstrap table styles to pandoc tables
-					function bootstrapStylePandocTables() {
-						$('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
-					}
-					$(document).ready(function () {
-						bootstrapStylePandocTables();
+			</script>
+			
+			<!-- tabsets -->
+			
+			<script>
+				$(document).ready(function () {
+					window.buildTabsets("TOC");
+				});
+				
+				$(document).ready(function () {
+					$('.tabset-dropdown > .nav-tabs > li').click(function () {
+						$(this).parent().toggleClass('nav-tabs-open');
 					});
-					
-					
-				</script>
-				
-				<!-- tabsets -->
-				
-				<script>
-					$(document).ready(function () {
-						window.buildTabsets("TOC");
-					});
-					
-					$(document).ready(function () {
-						$('.tabset-dropdown > .nav-tabs > li').click(function () {
-							$(this).parent().toggleClass('nav-tabs-open');
-						});
-					});
+				});
 				</script>
 				
 				<!-- code folding -->
@@ -334,4 +346,4 @@
 				</script>
 				
 			</body>
-		</html>		
+		</html>				
