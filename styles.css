@@ -41,6 +41,10 @@ img {
     display: block;
     margin: auto;
 }
+video {
+	display: block;
+	margin: auto;
+}
 
 img-circle {
     border-radius: 50%;
