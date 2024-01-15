@@ -33,6 +33,10 @@ h5 {
 h6 {
 	font-size: 12px;
 }
+figcaption {
+	text-align: center;
+	font-size: 16x;
+}
 img {
     display: block;
     margin: auto;
