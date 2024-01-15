@@ -41,7 +41,13 @@ img {
     display: block;
     margin: auto;
 }
+
 video {
+	display: block;
+	margin: auto;
+}
+
+source {
 	display: block;
 	margin: auto;
 }
