@@ -10,9 +10,6 @@
 		
 		<title>Phillip A. O. Gavino</title>
 		
-		<style> body{margin:0;}
-		</style>
-		
 		
 		<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 		<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -223,7 +220,7 @@
 	</head>
 	
 	<body>
-		<script src="three.js"> </script>
+
 		
 		
 		<div class="container-fluid main-container">
@@ -313,7 +310,57 @@
 		</div>
 		
 		<script src="three.js"></script>
-		<script src="main.js"></script>
+		
+		<script>
+			let scene = new THREE.Scene();
+			let camera = new THREE.PerspectiveCamera(75, 
+													window.innerWidth / 
+													window.innerHeight, 
+													0.1, 
+													1000);
+			
+			let renderer = new THREE.WebGLRenderer();
+			
+			function setup() {
+			camera.position.z = 2;
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			document.body.appendChild(renderer.domElement);
+			
+			let geometry = new THREE.BoxGeometry();
+			let material = new THREE.MeshBasicMaterial({color: 0xff0000});
+			
+			let cube = new THREE.Mesh(geometry, material);
+			
+			let cube2  = new THREE.Mesh(geometry, material);
+			
+			let pivot = new THREE.Object3D(geometry, material);
+			
+			cube.position.set(3, 0, 0);
+			cube2.position.x = -3;
+			let pivotangle = 0;
+			
+			pivot.add(cube);
+			pivot.add(cube2);
+			scene.add(pivot);
+			}
+			
+			
+			function draw() {
+				requestAnimationFrame(draw);
+				renderer.render(scene, camera);
+			
+				
+				cube.rotation.x += 0.01;
+				cube2.rotation.y += 0.01;
+				// pivot.rotation.y += 0.02;
+				pivotangle += 0.02;
+				pivot.rotateY(pivotangle);
+			};
+			
+			
+			
+			draw();
+		</script>
 		
 		<script>
 			
