@@ -48,6 +48,13 @@ video {
 	margin-right: auto;
 }
 
+#overlay {
+	position: absolute;
+	left: 0px;
+	color: black;
+}
+
+
 img-circle {
     border-radius: 50%;
 }
