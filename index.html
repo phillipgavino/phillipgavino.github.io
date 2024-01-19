@@ -9,9 +9,11 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 		
 		<title>Phillip A. O. Gavino</title>
-		
-		
-		
+		<script type="module">
+			import * as THREE from 'https://cdn.jsdelivr.net/npm/three@latest/build/three.module.js';
+			import { STLLoader } from 'https://cdn.jsdelivr.net/npm/three@latest/examples/jsm/loaders/STLLoader.js';
+		</script>
+			
 		<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 		<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -279,9 +281,7 @@
 			
 			
 			<div id="canvas-container">
-				<script src="js/three.js"></script>
-				<script src="js/STLLoader.js"></script>
-				<script src="js/main.js"></script>
+				<script type="module" src="main.js"></script>
 			</div>
 			
 			<div id="overlay">
