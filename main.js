@@ -1,4 +1,5 @@
-
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@latest/build/three.module.js';
+import { STLLoader } from 'https://cdn.jsdelivr.net/npm/three@latest/examples/jsm/loaders/STLLoader.js';
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
@@ -33,17 +34,17 @@ camera.position.z = 5;
 
 function animate() {
     requestAnimationFrame(animate);
-
+	
     if (mesh_1) {
         mesh_1.rotation.x += 0.01;
         mesh_1.rotation.y += 0.01;
-    }
+	}
 	
 	if (mesh_2) {
         mesh_2.rotation.x += 0.01;
         mesh_2.rotation.y += 0.01;
-    }
-
+	}
+	
     renderer.render(scene, camera);
 }
 
