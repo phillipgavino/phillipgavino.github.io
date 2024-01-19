@@ -13,7 +13,7 @@
 		
 		<title>Precision Machine Design</title>
 		
-		<link rel="stylesheet" href="styles.css">
+		
 		
 		<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 		<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -226,7 +226,7 @@
 		<!-- code folding -->
 		
 		
-		
+		<link rel="stylesheet" href="styles.css">
 		
 	</head>
 	
@@ -282,11 +282,50 @@
 			</div>
 			
 			<div class="photo-gallery">
-			<figure>
-				<img src = "lathe/lathe.png" alt="table_top_lathe_prototype">
-				<figcaption> Image of the Table Top Lathe </figcaption>
-			</figure>
-				<img src = "lathe/lathe_and_motor_cad.png" alt="Image of the Lathe and Motor CAD">
+				<figure>
+					<img src = "lathe/lathe.png" alt="table_top_lathe_prototype">
+					<figcaption> Image of the Table Top Lathe </figcaption>
+				</figure>
+				
+				<p><br></p>
+				
+				<figure>
+					<img src = "lathe/lathe_and_motor_cad.png" alt="lathe_motor_CAD">
+					<figcaption> Image of the Lathe and Motor CAD </figcaption>
+				</figure>
+				
+				<p><br></p>
+				
+				<figure>
+					<img src = "lathe/spindle.png" alt="lathe_spindle">
+					<figcaption> Image of the Spindle </figcaption>
+				</figure>
+				
+				<p><br></p>
+				
+				<figure>
+					<img src = "lathe/pulley_system.png" alt="lathe_pulley">
+					<figcaption> Image of the Pulley System </figcaption>
+				</figure>
+				
+				<p><br></p>
+				
+				<figure>
+					<img src = "lathe/tool_flexure_deflection.png" alt="FEA_tool_flexure">
+					<figcaption> Image of the Deflection FEA for the Tool Flexure </figcaption>
+				</figure>
+				
+				<p><br></p>
+				
+				<figure>
+					<video autoplay loop muted style="width: 85%;">
+						<source src="lathe/lathe_running_vid.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+					<figcaption> Video of the Lathe Running </figcaption>
+				</figure>
+				
+				
 			</div>
 			
 			
@@ -303,33 +342,33 @@
 				
 				
 			</script>
-		
-		<!-- tabsets -->
-		
-		<script>
-		$(document).ready(function () {
-		window.buildTabsets("TOC");
-		});
-		
-		$(document).ready(function () {
-		$('.tabset-dropdown > .nav-tabs > li').click(function () {
-		$(this).parent().toggleClass('nav-tabs-open');
-		});
-		});
-		</script>
-		
-		<!-- code folding -->
-		
-		
-		<!-- dynamically load mathjax for compatibility with self-contained -->
-		<script>
-		(function () {
-		var script = document.createElement("script");
-		script.type = "text/javascript";
-		script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-		document.getElementsByTagName("head")[0].appendChild(script);
-		})();
-		</script>
-		
-	</body>
-</html>		
+			
+			<!-- tabsets -->
+			
+			<script>
+				$(document).ready(function () {
+					window.buildTabsets("TOC");
+				});
+				
+				$(document).ready(function () {
+					$('.tabset-dropdown > .nav-tabs > li').click(function () {
+						$(this).parent().toggleClass('nav-tabs-open');
+					});
+				});
+			</script>
+			
+			<!-- code folding -->
+			
+			
+			<!-- dynamically load mathjax for compatibility with self-contained -->
+			<script>
+				(function () {
+					var script = document.createElement("script");
+					script.type = "text/javascript";
+					script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+					document.getElementsByTagName("head")[0].appendChild(script);
+				})();
+			</script>
+			
+		</body>
+	</html>			

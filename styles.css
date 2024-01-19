@@ -48,6 +48,10 @@ video {
 	margin-right: auto;
 }
 
+#canvas-container {
+	position: relative;
+}
+
 #overlay {
 	position: absolute;
 	left: 0px;

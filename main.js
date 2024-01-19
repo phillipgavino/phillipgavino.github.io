@@ -1,7 +1,5 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader';
-import Stats from 'three/examples/jsm/libs/stats.module';
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
@@ -11,15 +9,25 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-let mesh; // Declare the mesh variable here
+let mesh_1; // Declare the mesh variable here
 
 const loader = new STLLoader();
 loader.load("ut_longhorn.stl", function (geometry) {
     const material = new THREE.MeshBasicMaterial({ color: 0xFF5733 });
-    mesh = new THREE.Mesh(geometry, material);
+    mesh_1 = new THREE.Mesh(geometry, material);
 	
-	mesh.position.set(-4.5, 0, 0);
-    scene.add(mesh);
+	mesh_1.position.set(-5, 0.5, 0);
+    scene.add(mesh_1);
+});
+
+let mesh_2; // Declare the mesh variable here
+
+loader.load("ut_longhorn.stl", function (geometry) {
+    const material = new THREE.MeshBasicMaterial({ color: 0xFF5733});
+    mesh_2 = new THREE.Mesh(geometry, material);
+	
+	mesh_2.position.set(4.5, 0.5, 0);
+    scene.add(mesh_2);
 });
 
 camera.position.z = 5;
@@ -27,9 +35,14 @@ camera.position.z = 5;
 function animate() {
     requestAnimationFrame(animate);
 
-    if (mesh) {
-        mesh.rotation.x += 0.01;
-        mesh.rotation.y += 0.01;
+    if (mesh_1) {
+        mesh_1.rotation.x += 0.01;
+        mesh_1.rotation.y += 0.01;
+    }
+	
+	if (mesh_2) {
+        mesh_2.rotation.x += 0.01;
+        mesh_2.rotation.y += 0.01;
     }
 
     renderer.render(scene, camera);
