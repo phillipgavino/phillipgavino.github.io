@@ -1,5 +1,5 @@
-import * as THREE from 'three';
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader';
+import * as THREE from 'three.js';
+import { STLLoader } from "STLLoader.js";
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
