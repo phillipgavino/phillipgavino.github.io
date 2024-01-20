@@ -293,17 +293,24 @@
 				<figure>
 					<img src = "latte_art_robot/latte_kin.gif" alt="kinematics">
 					<figcaption> Latte Art Robot Trajectory </figcaption>
-				</div>
+				
 				
 				<p><br></p>
 				
 				<figure>
-					<video autoplay loop muted style = "width: 55%">
-						<source src="latte_art_robot/latte_video.mp4" type="video/mp4">
-						Your browser does not support the video tag.
-					</video>
-					<figcaption> Video of the Latte Art Robot Running </figcaption>
+					<div id="videoContainer" class="video-container">
+						<video id="myVideo" muted style = "width: 50%">
+							<source src="latte_art_robot/latte_video.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+						<button id="playButton" class="play-button"> &#9654; </button>
+						<figcaption> Video of the Latte Art Robot Running </figcaption>
+					</div>
 				</figure>
+				
+				</div>
+				
+				<script src="videoPlayer.js"></script>
 				
 				
 				
@@ -348,4 +355,4 @@
 				</script>
 				
 			</body>
-		</html>											
+		</html>																	

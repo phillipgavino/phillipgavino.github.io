@@ -318,16 +318,23 @@
 				<p><br></p>
 				
 				<figure>
-					<video autoplay loop muted style="width: 85%;">
-						<source src="lathe/lathe_running_vid.mp4" type="video/mp4">
-						Your browser does not support the video tag.
-					</video>
-					<figcaption> Video of the Lathe Running </figcaption>
+					<div id="videoContainer" class="video-container">
+						<video id="myVideo" muted style = "width: 85%">
+							<source src="lathe/lathe_running_vid.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+						<button id="playButton" class="play-button"> &#9654; </button>
+						<figcaption> Video of the Lathe Running </figcaption>
+					</div>
 				</figure>
+				
+				
+				
 				
 				
 			</div>
 			
+			<script src="videoPlayer.js"></script>
 			
 			
 			<script>

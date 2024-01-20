@@ -27,6 +27,8 @@ h4 {
 }
 h5 {
 	font-size: 16px;
+	padding-left: 20%;
+	padding-right: 20%;
 	text-align: center;
 	
 }
@@ -56,6 +58,25 @@ video {
 	position: absolute;
 	left: 0px;
 	color: black;
+}
+
+.video-container {
+    position: relative;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Hide the button when the video is playing */
+.video-container.playing .play-button {
+    display: none;
 }
 
 
