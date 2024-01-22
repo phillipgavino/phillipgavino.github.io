@@ -1,5 +1,6 @@
 body {
 	background-color:white;
+	
 }
 a {
 	color: #bf5700;
@@ -79,6 +80,20 @@ video {
     display: none;
 }
 
+.button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            background-color: #CC5500;
+            border-radius: 5px;
+        }
+
+.center {
+            display: flex;
+            justify-content: center;
+        }
 
 img-circle {
     border-radius: 50%;

@@ -298,26 +298,30 @@
 				<figure>
 					<img src = "latte_art_robot/latte_kin.gif" alt="kinematics">
 					<figcaption> Latte Art Robot Trajectory </figcaption>
-				
-				
-				<p><br></p>
-				
-				<figure>
-					<div id="videoContainer" class="video-container">
-						<video id="myVideo" muted style = "width: 50%">
-							<source src="latte_art_robot/latte_video.mp4" type="video/mp4">
-							Your browser does not support the video tag.
-						</video>
-						<button id="playButton" class="play-button"> &#9654; </button>
-						<figcaption> Video of the Latte Art Robot Running </figcaption>
-					</div>
-				</figure>
-				
+					
+					
+					<p><br></p>
+					
+					<figure>
+						<div id="videoContainer" class="video-container">
+							<video id="myVideo" muted style = "width: 50%">
+								<source src="latte_art_robot/latte_video.mp4" type="video/mp4">
+								Your browser does not support the video tag.
+							</video>
+							<button id="playButton" class="play-button"> &#9654; </button>
+							<figcaption> Video of the Latte Art Robot Running </figcaption>
+						</div>
+					</figure>
+					
 				</div>
 				
 				<script src="videoPlayer.js"></script>
 				
+				<p><br></p>
 				
+				<div class="center">
+					<a href="https://wikis.utexas.edu/display/RMD/Latte+Art+Robot" class="button">More Info</a>
+				</div>
 				
 				<script>
 					
@@ -336,14 +340,14 @@
 				
 				<script>
 					$(document).ready(function () {
-						window.buildTabsets("TOC");
+					window.buildTabsets("TOC");
+				});
+				
+				$(document).ready(function () {
+					$('.tabset-dropdown > .nav-tabs > li').click(function () {
+						$(this).parent().toggleClass('nav-tabs-open');
 					});
-					
-					$(document).ready(function () {
-						$('.tabset-dropdown > .nav-tabs > li').click(function () {
-							$(this).parent().toggleClass('nav-tabs-open');
-						});
-					});
+				});
 				</script>
 				
 				<!-- code folding -->
@@ -360,4 +364,4 @@
 				</script>
 				
 			</body>
-		</html>																	
+		</html>																			
