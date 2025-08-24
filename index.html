@@ -112,11 +112,11 @@
 
 <body>
 
+
 	<!-- Navbar -->
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
-				<!-- Hamburger for mobile -->
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
@@ -137,7 +137,8 @@
 				</ul>
 			</div>
 		</div>
-	</nav>
+	</div>
+
 
 	<!-- 3D Canvas -->
 	<div id="canvas-container"></div>
@@ -161,7 +162,11 @@
 
 	<!-- Three.js main -->
 	<script type="module" src="main.js"></script>
+	<!-- jQuery must come first -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- Then Bootstrap's JS -->
 	<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+
 
 </body>
 
