@@ -16,20 +16,20 @@ let meshes = [];
 const stlGroup = new THREE.Group();
 scene.add(stlGroup);
 
-// Load two mirrored STLs into a group
 const loadSTL = (path, color, xOffset) => {
     loader.load(path, (geometry) => {
         const material = new THREE.MeshPhongMaterial({ color, shininess: 80 });
         const mesh = new THREE.Mesh(geometry, material);
-        mesh.position.set(xOffset, 0, 0);
-        mesh.rotation.x = -Math.PI / 2; // upright
+        mesh.position.set(xOffset, 0, 0); // relative to group
+        mesh.rotation.x = -Math.PI / 2;
         meshes.push(mesh);
         stlGroup.add(mesh);
     });
 };
 
-loadSTL("ut_longhorn.stl", 0xff5733, -1.5);
-loadSTL("ut_longhorn.stl", 0x004a9f, 1.5);
+loadSTL("ut_longhorn.stl", 0xff5733, -2.5);
+loadSTL("ut_longhorn.stl", 0x004a9f, 2.5);
+
 
 // Lighting
 const ambientLight = new THREE.AmbientLight(0x888888);
