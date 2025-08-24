@@ -103,6 +103,11 @@ iframe {
 	/* ensures it sits on TOP of STL canvas */
 }
 
+#header {
+  padding-top: 80px; /* pushes the project title below the fixed navbar */
+}
+
+
 
 /* Round Avatar */
 .img-circle {

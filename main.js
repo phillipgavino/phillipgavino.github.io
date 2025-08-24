@@ -27,8 +27,8 @@ const loadSTL = (path, color, xOffset) => {
     });
 };
 
-loadSTL("ut_longhorn.stl", 0xff5733, -2.5);
-loadSTL("ut_longhorn.stl", 0x004a9f, 2.5);
+loadSTL("ut_longhorn.stl", 0xff5733, -1.5);
+loadSTL("ut_longhorn.stl", 0x004a9f, 1.5);
 
 
 // Lighting
