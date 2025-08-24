@@ -104,7 +104,8 @@ iframe {
 }
 
 #header {
-  margin-top: 80px; /* pushes the project title below the fixed navbar */
+	margin-top: 80px;
+	/* pushes the project title below the fixed navbar */
 }
 
 
@@ -188,8 +189,9 @@ iframe {
 
 @media (max-width: 768px) {
 	#header {
-		margin-top:60px;
+		margin-top: 60px;
 	}
+
 	#overlay h1 {
 		font-size: 2rem;
 	}
@@ -197,4 +199,46 @@ iframe {
 	#overlay p {
 		font-size: 1rem;
 	}
+}
+
+/* Cards */
+.card {
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	padding: 1.5rem;
+	margin-bottom: 2rem;
+	text-align: left;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+	font-size: 1.4rem;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+
+.card h3 i {
+	color: #bf5700;
+	margin-right: 0.5rem;
+}
+
+.card a {
+	color: #bf5700;
+	text-decoration: none;
+}
+
+.card a:hover {
+	text-decoration: underline;
+}
+
+.card p {
+	font-size: 0.95rem;
+	color: #555;
+	line-height: 1.5;
 }

@@ -4,7 +4,12 @@ import { STLLoader } from "three/addons/loaders/STLLoader.js";
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
 
-const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(
+    60,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+);
 camera.position.z = 10;
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -16,20 +21,37 @@ let meshes = [];
 const stlGroup = new THREE.Group();
 scene.add(stlGroup);
 
-const loadSTL = (path, color, xOffset) => {
-    loader.load(path, (geometry) => {
-        const material = new THREE.MeshPhongMaterial({ color, shininess: 80 });
-        const mesh = new THREE.Mesh(geometry, material);
-        mesh.position.set(xOffset, 0, 0); // relative to group
-        mesh.rotation.x = -Math.PI / 2;
-        meshes.push(mesh);
-        stlGroup.add(mesh);
+// Utility: center group based on its bounding box
+function centerGroup(group) {
+    const box = new THREE.Box3().setFromObject(group);
+    const center = box.getCenter(new THREE.Vector3());
+    group.position.sub(center); // move so group is centered at (0,0,0)
+}
+
+// Load STL and return a Promise
+function loadSTL(path, color, xOffset) {
+    return new Promise((resolve) => {
+        loader.load(path, (geometry) => {
+            const material = new THREE.MeshPhongMaterial({ color, shininess: 80 });
+            const mesh = new THREE.Mesh(geometry, material);
+
+            mesh.position.set(xOffset, -1, 1); // offset for separation
+            mesh.rotation.x = -Math.PI / 2;
+
+            meshes.push(mesh);
+            stlGroup.add(mesh);
+            resolve(mesh);
+        });
     });
-};
+}
 
-loadSTL("ut_longhorn.stl", 0xff5733, -1.5);
-loadSTL("ut_longhorn.stl", 0x004a9f, 1.5);
-
+// Load both STLs, then center group
+Promise.all([
+    loadSTL("ut_longhorn.stl", 0xff5733, -1),
+    loadSTL("ut_longhorn.stl", 0x004a9f, 1),
+]).then(() => {
+    centerGroup(stlGroup);
+});
 
 // Lighting
 const ambientLight = new THREE.AmbientLight(0x888888);
@@ -39,21 +61,11 @@ const dirLight = new THREE.DirectionalLight(0xffffff, 0.9);
 dirLight.position.set(5, 10, 7.5);
 scene.add(dirLight);
 
-// --- Keep group aligned on right side of screen ---
-function updateGroupPosition() {
-    const aspect = window.innerWidth / window.innerHeight;
-    // push models to right side, but responsive
-    stlGroup.position.x = aspect > 1 ? 3.5 : 2; 
-    stlGroup.position.y = -0.5;
-}
-updateGroupPosition();
-
 // Resize handling
 function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
-    updateGroupPosition();
 }
 window.addEventListener("resize", onWindowResize);
 
