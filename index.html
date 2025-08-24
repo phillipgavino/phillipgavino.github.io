@@ -37,6 +37,11 @@
 			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 		}
 
+		/* Push content below navbar */
+		#overlay {
+			margin-top: 70px; /* prevents navbar overlap */
+		}
+
 		/* Canvas container */
 		#canvas-container {
 			position: fixed;
@@ -48,19 +53,17 @@
 		}
 
 		#overlay {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
+			position: relative;
 			text-align: center;
 			background: rgba(255, 255, 255, 0.7);
 			padding: 2rem;
 			border-radius: 16px;
 			box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 			max-width: 700px;
+			margin-left: auto;
+			margin-right: auto;
 			backdrop-filter: blur(10px);
 		}
-
 
 		#overlay img {
 			border-radius: 50%;
@@ -69,20 +72,16 @@
 		}
 
 		#overlay h1 {
-			font-size: 2.8rem;
-			/* was ~2rem */
+			font-size: 2.4rem;
 			font-weight: 700;
 			margin-bottom: 1rem;
 		}
 
 		#overlay p {
-			font-size: 1.15rem;
-			/* bigger than Bootstrap default 1rem */
-			line-height: 1.7;
-			/* more breathing room */
+			font-size: 1.1rem;
+			line-height: 1.6;
 			color: #333;
 		}
-
 
 		#overlay .btn-custom {
 			display: inline-block;
@@ -102,7 +101,6 @@
 		}
 	</style>
 	<link rel="stylesheet" href="styles.css" type="text/css" />
-
 </head>
 
 <body>
@@ -111,6 +109,12 @@
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
+				<!-- Hamburger for mobile -->
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
 				<a class="navbar-brand" href="index.html">Phillip Gavino</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
@@ -121,8 +125,7 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="http://github.com/phillipgavino/"><i class="fa fa-github fa-lg"></i></a></li>
-					<li><a href="https://www.linkedin.com/in/phillip-gavino/"><i class="fa fa-linkedin fa-lg"></i></a>
-					</li>
+					<li><a href="https://www.linkedin.com/in/phillip-gavino/"><i class="fa fa-linkedin fa-lg"></i></a></li>
 				</ul>
 			</div>
 		</div>
@@ -150,6 +153,7 @@
 
 	<!-- Three.js main -->
 	<script type="module" src="main.js"></script>
+	<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 
 </body>
 

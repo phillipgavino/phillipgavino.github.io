@@ -3,170 +3,186 @@
 
 <head>
 
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta charset="utf-8" />
+	<meta name="generator" content="pandoc" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Portfolio</title>
+	<title>Portfolio</title>
 
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/35175db33a.js" crossorigin="anonymous"></script>
+	<!-- Fonts & Icons -->
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/35175db33a.js" crossorigin="anonymous"></script>
 
-  <!-- Bootstrap -->
-  <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-  <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+	<!-- Bootstrap -->
+	<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+	<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 
-  <!-- Styling -->
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      text-align: center;
-    }
+	<!-- Styling -->
+	<style>
+		body {
+			padding-top: 70px;
+			font-family: 'Roboto', sans-serif;
+			background-color: #f9f9f9;
+			color: #333;
+			text-align: center;
+		}
 
-    h1.title {
-      font-size: 2.8rem;
-      font-weight: 600;
-      margin: 2rem 0 1rem 0;
-      color: #222;
-    }
+		h1.title {
+			font-size: 2.8rem;
+			font-weight: 600;
+			margin: 2rem 0 1rem 0;
+			color: #222;
+		}
 
-    p.subtitle {
-      font-size: 1.2rem;
-      color: #555;
-      margin-bottom: 2rem;
-    }
+		p.subtitle {
+			font-size: 1.2rem;
+			color: #555;
+			margin-bottom: 2rem;
+		}
 
-    .portfolio-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1rem;
-    }
+		.portfolio-container {
+			max-width: 1100px;
+			margin: 0 auto;
+			padding: 1rem;
+		}
 
-    /* Cards */
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      text-align: left;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
+		/* Cards */
+		.card {
+			background: #fff;
+			border-radius: 12px;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+			padding: 1.5rem;
+			margin-bottom: 2rem;
+			text-align: left;
+			transition: transform 0.2s ease, box-shadow 0.2s ease;
+		}
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
+		.card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+		}
 
-    .card h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
+		.card h3 {
+			font-size: 1.5rem;
+			font-weight: 600;
+			margin-bottom: 0.5rem;
+		}
 
-    .card h3 i {
-      color: #0069d9;
-      margin-right: 0.5rem;
-    }
+		.card h3 i {
+			color: #0069d9;
+			margin-right: 0.5rem;
+		}
 
-    .card a {
-      color: #0069d9;
-      text-decoration: none;
-    }
+		.card a {
+			color: #0069d9;
+			text-decoration: none;
+		}
 
-    .card a:hover {
-      text-decoration: underline;
-    }
+		.card a:hover {
+			text-decoration: underline;
+		}
 
-    .card p {
-      font-size: 0.95rem;
-      color: #555;
-      line-height: 1.5;
-    }
-  </style>
-  </link rel="stylesheet" href="styles.css" type="text/css" />
+		.card p {
+			font-size: 0.95rem;
+			color: #555;
+			line-height: 1.5;
+		}
+	</style>
+	</link rel="stylesheet" href="styles.css" type="text/css" />
 
 </head>
 
 <body>
 
-  <div class="container-fluid main-container">
+	<div class="container-fluid main-container">
 
-    <!-- Navbar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-            data-target="#navbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html">Phillip Gavino</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="events.html">Events</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://github.com/phillipgavino/"><span class="fa fa-github fa-lg"></span></a></li>
-            <li><a href="https://www.linkedin.com/in/phillip-gavino/"><span class="fa fa-linkedin fa-lg"></span></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+		<!-- Navbar -->
+		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.html">Phillip Gavino</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="portfolio.html">Portfolio</a></li>
+						<li><a href="events.html">Events</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="http://github.com/phillipgavino/"><span class="fa fa-github fa-lg"></span></a></li>
+						<li><a href="https://www.linkedin.com/in/phillip-gavino/"><span
+									class="fa fa-linkedin fa-lg"></span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 
-    <!-- Header -->
-    <div id="header">
-      <h1 class="title toc-ignore">Portfolio</h1>
-      <p class="subtitle"><em>Check out some examples of my work below</em></p>
-    </div>
+		<!-- Header -->
+		<div id="header">
+			<h1 class="title toc-ignore">Portfolio</h1>
+			<p class="subtitle"><em>Check out some examples of my work below</em></p>
+		</div>
 
-    <!-- Portfolio Grid -->
-    <div class="portfolio-container">
+		<!-- Portfolio Grid -->
+		<div class="portfolio-container">
 
-      <div class="card">
-        <h3><i class="fa-solid fa-robot"></i> <a href="sp.html">6-DOF Stewart Platform: Design and Control</a></h3>
-        <p>End-to-end development of a 6-DOF Stewart platform: from actuator configuration and inverse kinematics to real-time
-          control with Sliding Mode Control (SMC) and trajectory generation. Built with custom simulation and embedded
-          control software to ensure robust, precise motion.</p>
-      </div>
+			<div class="card">
+				<h3><i class="fa-solid fa-robot"></i> <a href="sp.html">6-DOF Stewart Platform: Design and Control</a>
+				</h3>
+				<p>End-to-end development of a 6-DOF Stewart platform: from actuator configuration and inverse
+					kinematics to real-time
+					control with Sliding Mode Control (SMC) and trajectory generation. Built with custom simulation and
+					embedded
+					control software to ensure robust, precise motion.</p>
+			</div>
 
-      <div class="card">
-        <h3><i class="fa-solid fa-gear"></i> <a href="gdm.html">Engineering Design Theory: Reverse Engineered Massage Gun</a></h3>
-        <p>Applied functional decomposition, system modeling, and iterative prototyping to evaluate product performance.
-          This reverse engineering project emphasized thoughtful design analysis, customer needs mapping, and hands-on
-          validation.</p>
-      </div>
+			<div class="card">
+				<h3><i class="fa-solid fa-gear"></i> <a href="gdm.html">Engineering Design Theory: Reverse Engineered
+						Massage Gun</a></h3>
+				<p>Applied functional decomposition, system modeling, and iterative prototyping to evaluate product
+					performance.
+					This reverse engineering project emphasized thoughtful design analysis, customer needs mapping, and
+					hands-on
+					validation.</p>
+			</div>
 
-      <div class="card">
-        <h3><i class="fa-solid fa-robot"></i> <a href="rmd.html">Robot Mechanism Design Project: Latte Art Robot</a></h3>
-        <p>Designed and built a 1-DOF latte art robot capable of drawing heart shapes in foam. Integrated mechanism design,
-          kinematic analysis, and precision control to achieve repeatable robotic artistry.</p>
-      </div>
+			<div class="card">
+				<h3><i class="fa-solid fa-robot"></i> <a href="rmd.html">Robot Mechanism Design Project: Latte Art
+						Robot</a></h3>
+				<p>Designed and built a 1-DOF latte art robot capable of drawing heart shapes in foam. Integrated
+					mechanism design,
+					kinematic analysis, and precision control to achieve repeatable robotic artistry.</p>
+			</div>
 
-      <div class="card">
-        <h3><i class="fa-solid fa-gear"></i> <a href="pmd.html">Precision Machine Design: Precision Tabletop Lathe</a></h3>
-        <p>Developed a precision tabletop lathe as part of a machine design course. The project involved tolerance stack-up,
-          FEA error modeling, and manufacturability analysis, resulting in a compact lathe designed for micron-level accuracy.</p>
-      </div>
+			<div class="card">
+				<h3><i class="fa-solid fa-gear"></i> <a href="pmd.html">Precision Machine Design: Precision Tabletop
+						Lathe</a></h3>
+				<p>Developed a precision tabletop lathe as part of a machine design course. The project involved
+					tolerance stack-up,
+					FEA error modeling, and manufacturability analysis, resulting in a compact lathe designed for
+					micron-level accuracy.</p>
+			</div>
 
-      <div class="card">
-        <h3><i class="fa-solid fa-robot"></i> <a href="senior_design.html">Senior Design: Sensor Bot for Evaluating Sensor Suites</a></h3>
-        <p>Capstone project sponsored by Tailos Inc. Designed and retrofitted a modular sensor mounting platform on autonomous
-          robots to test and validate navigation and perception sensor configurations for real-world R&D use.</p>
-      </div>
+			<div class="card">
+				<h3><i class="fa-solid fa-robot"></i> <a href="senior_design.html">Senior Design: Sensor Bot for
+						Evaluating Sensor Suites</a></h3>
+				<p>Capstone project sponsored by Tailos Inc. Designed and retrofitted a modular sensor mounting platform
+					on autonomous
+					robots to test and validate navigation and perception sensor configurations for real-world R&D use.
+				</p>
+			</div>
 
-    </div><!-- portfolio-container -->
+		</div><!-- portfolio-container -->
 
-  </div><!-- main-container -->
+	</div><!-- main-container -->
 
 </body>
+
 </html>
