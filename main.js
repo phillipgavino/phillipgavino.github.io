@@ -1,86 +1,71 @@
 import * as THREE from "three";
 import { STLLoader } from "three/addons/loaders/STLLoader.js";
 
-
-const aspect = window.innerWidth / window.innerHeight;
-// Example calculation: adjust positions based on aspect ratio
-const offset = aspect * 3; // This value controls the offset from the center
-
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
-const camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
 
-const renderer = new THREE.WebGLRenderer();
+const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 10;
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+document.getElementById("canvas-container").appendChild(renderer.domElement);
 
-// Handle window resize for responsiveness
+const loader = new STLLoader();
+let meshes = [];
+const stlGroup = new THREE.Group();
+scene.add(stlGroup);
+
+// Load two mirrored STLs into a group
+const loadSTL = (path, color, xOffset) => {
+    loader.load(path, (geometry) => {
+        const material = new THREE.MeshPhongMaterial({ color, shininess: 80 });
+        const mesh = new THREE.Mesh(geometry, material);
+        mesh.position.set(xOffset, 0, 0);
+        mesh.rotation.x = -Math.PI / 2; // upright
+        meshes.push(mesh);
+        stlGroup.add(mesh);
+    });
+};
+
+loadSTL("ut_longhorn.stl", 0xff5733, -1.5);
+loadSTL("ut_longhorn.stl", 0x004a9f, 1.5);
+
+// Lighting
+const ambientLight = new THREE.AmbientLight(0x888888);
+scene.add(ambientLight);
+
+const dirLight = new THREE.DirectionalLight(0xffffff, 0.9);
+dirLight.position.set(5, 10, 7.5);
+scene.add(dirLight);
+
+// --- Keep group aligned on right side of screen ---
+function updateGroupPosition() {
+    const aspect = window.innerWidth / window.innerHeight;
+    // push models to right side, but responsive
+    stlGroup.position.x = aspect > 1 ? 3.5 : 2; 
+    stlGroup.position.y = -0.5;
+}
+updateGroupPosition();
+
+// Resize handling
 function onWindowResize() {
-    camera.aspect = aspect;
+    camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
-	
-	updateObjectPositions();
+    updateGroupPosition();
 }
-window.addEventListener('resize', onWindowResize, false);
+window.addEventListener("resize", onWindowResize);
 
-let mesh_1, mesh_2;
-const loader = new STLLoader();
-
-loader.load("ut_longhorn.stl", function (geometry) {
-    const material = new THREE.MeshBasicMaterial({ color: 0xFF5733 });
-    mesh_1 = new THREE.Mesh(geometry, material);
-    mesh_1.position.set(offset, 0.5, 0); // Adjusted position
-    scene.add(mesh_1);
-});
-
-loader.load("ut_longhorn.stl", function (geometry) {
-    const material = new THREE.MeshBasicMaterial({ color: 0xFF5733 });
-    mesh_2 = new THREE.Mesh(geometry, material);
-    mesh_2.position.set(-offset, 0.5, 0); // Adjusted position
-    scene.add(mesh_2);
-});
-
-function updateObjectPositions() {
-	
-    if (mesh_1) {
-        mesh_1.position.set(-offset, 0.5, 0);
-	}
-	
-    if (mesh_2) {
-        mesh_2.position.set(offset, 0.5, 0);
-	}
-}
-
-function updateCameraPosition() {
-    // Example camera position update
-    camera.position.z = 5 + window.innerWidth / window.innerHeight;
-}
-
-window.addEventListener('resize', function() {
-    onWindowResize();
-    updateCameraPosition();
-}, false);
-
-
-
+// Animation
 function animate() {
     requestAnimationFrame(animate);
-	
-    if (mesh_1) {
-        mesh_1.rotation.x += 0.01;
-        mesh_1.rotation.y += 0.01;
-	}
-	
-	if (mesh_2) {
-        mesh_2.rotation.x += 0.01;
-        mesh_2.rotation.y += 0.01;
-	}
-	
+
+    meshes.forEach((mesh, i) => {
+        mesh.rotation.y += 0.01 * (i % 2 === 0 ? 1 : -1);
+        mesh.rotation.x += 0.005;
+    });
+
     renderer.render(scene, camera);
 }
-
 animate();
-
-updateCameraPosition();
-

@@ -8,8 +8,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<title>Robot Mechanism Design</title>
+	<title>Latte Art Robot</title>
 
+	<link rel="stylesheet" href="styles.css">
 	<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 	<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 	<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -72,42 +73,14 @@
 			margin-top: 0.6rem;
 		}
 
-		/* Responsive video */
-		video {
-			display: block;
-		}
-
-		.center a {
-			font-size: 1.1rem;
-			font-weight: 600;
-			color: #0069d9;
-			text-decoration: none;
-		}
-
-		.center a:hover {
-			text-decoration: underline;
-		}
-
-		/* Custom play button for latte robot video */
-		.video-container {
-			position: relative;
-			display: inline-block;
-		}
-
-		.play-button {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			font-size: 3rem;
-			color: white;
-			background: rgba(0, 0, 0, 0.5);
-			border: none;
-			border-radius: 50%;
-			padding: 0.5rem 1rem;
-			cursor: pointer;
+		/* Ensure autoplay works desktop but tap-to-play on mobile */
+		@media (hover: none) and (pointer: coarse) {
+			video[autoplay] {
+				autoplay: false;
+			}
 		}
 	</style>
+
 	<link rel="stylesheet" href="styles.css" type="text/css" />
 
 </head>
@@ -136,7 +109,8 @@
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="http://github.com/phillipgavino/"><span class="fa fa-github fa-lg"></span></a></li>
-						<li><a href="https://www.linkedin.com/in/phillip-gavino/"><span class="fa fa-linkedin fa-lg"></span></a></li>
+						<li><a href="https://www.linkedin.com/in/phillip-gavino/"><span
+									class="fa fa-linkedin fa-lg"></span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -160,73 +134,22 @@
 			</figure>
 
 			<figure>
-				<div id="videoContainer" class="video-container">
-					<video id="myVideo" muted autoplay loop playsinline>
-						<source src="latte_art_robot/latte_video.mp4" type="video/mp4">
-						Your browser does not support the video tag.
-					</video>
-					<button id="playButton" class="play-button">&#9654;</button>
-					<figcaption>Video of the Latte Art Robot Running</figcaption>
-				</div>
-			</figure>
+				<video autoplay loop muted playsinline controls>
+					<source src="latte_art_robot/latte_video.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+				<figcaption>Video of the Latte Art Robot Running</figcaption>
 		</div>
+		</figure>
+	</div>
 
-		<p><br></p>
+	<p><br></p>
 
-		<div class="center">
-			<a href="https://wikis.utexas.edu/display/RMD/Latte+Art+Robot">More Info</a>
-		</div>
+	<div class="center">
+		<a href="https://wikis.utexas.edu/display/RMD/Latte+Art+Robot">More Info</a>
+	</div>
 
 	</div><!-- main container -->
-
-	<script src="videoPlayer.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const videos = document.querySelectorAll("video");
-
-  videos.forEach(video => {
-    const container = video.closest(".video-container");
-    const playBtn = container ? container.querySelector(".play-button") : null;
-
-    // Hide/show button depending on video events
-    function hideButton() {
-      if (playBtn) playBtn.style.display = "none";
-    }
-    function showButton() {
-      if (playBtn) playBtn.style.display = "block";
-    }
-
-    // Desktop autoplay (muted only)
-    if (!window.matchMedia("(hover: none) and (pointer: coarse)").matches && video.hasAttribute("autoplay")) {
-      video.muted = true;
-      video.play().then(hideButton).catch(showButton);
-    } else {
-      // Mobile: disable autoplay, require tap
-      video.removeAttribute("autoplay");
-      video.pause();
-      showButton();
-    }
-
-    // Wire up video events
-    video.addEventListener("playing", hideButton);
-    video.addEventListener("pause", showButton);
-    video.addEventListener("ended", showButton);
-
-    // Wire up play button toggle
-    if (playBtn) {
-      playBtn.addEventListener("click", () => {
-        if (video.paused) {
-          video.play();
-        } else {
-          video.pause();
-        }
-      });
-    }
-  });
-});
-</script>
-
 
 
 	<script>
@@ -267,4 +190,5 @@ document.addEventListener("DOMContentLoaded", function () {
 	</script>
 
 </body>
+
 </html>

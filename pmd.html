@@ -8,8 +8,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<title>Precision Machine Design</title>
+	<title>Precision Tabletop Lathe</title>
 
+	<link rel="stylesheet" href="styles.css">
 	<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 	<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 	<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -72,9 +73,11 @@
 			margin-top: 0.6rem;
 		}
 
-		/* Responsive video */
-		video {
-			display: block;
+		/* Ensure autoplay works desktop but tap-to-play on mobile */
+		@media (hover: none) and (pointer: coarse) {
+			video[autoplay] {
+				autoplay: false;
+			}
 		}
 
 		.reports a {
@@ -87,29 +90,9 @@
 		.reports a:hover {
 			text-decoration: underline;
 		}
-
-		/* Custom play button overlay */
-		.video-container {
-			position: relative;
-			display: inline-block;
-		}
-
-		.play-button {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			font-size: 3rem;
-			color: white;
-			background: rgba(0, 0, 0, 0.5);
-			border: none;
-			border-radius: 50%;
-			padding: 0.5rem 1rem;
-			cursor: pointer;
-		}
 	</style>
-
 	<link rel="stylesheet" href="styles.css" type="text/css" />
+
 </head>
 
 <body>
@@ -136,7 +119,8 @@
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="http://github.com/phillipgavino/"><span class="fa fa-github fa-lg"></span></a></li>
-						<li><a href="https://www.linkedin.com/in/phillip-gavino/"><span class="fa fa-linkedin fa-lg"></span></a></li>
+						<li><a href="https://www.linkedin.com/in/phillip-gavino/"><span
+									class="fa fa-linkedin fa-lg"></span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -144,7 +128,7 @@
 
 		<!-- Header -->
 		<div id="header">
-			<h1 class="title toc-ignore">Precision Table Top Lathe</h1>
+			<h1 class="title toc-ignore">Precision Tabletop Lathe</h1>
 		</div>
 
 		<!-- Gallery -->
@@ -185,14 +169,11 @@
 			</figure>
 
 			<figure>
-				<div id="videoContainer" class="video-container">
-					<video id="myVideo" muted autoplay loop playsinline>
-						<source src="lathe/lathe_running_vid.mp4" type="video/mp4">
-						Your browser does not support the video tag.
-					</video>
-					<button id="playButton" class="play-button">&#9654;</button>
-					<figcaption>Video of the Lathe Running</figcaption>
-				</div>
+				<video autoplay loop muted playsinline>
+					<source src="lathe/lathe_running_vid.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+				<figcaption>Video of the Lathe Running</figcaption>
 			</figure>
 		</div>
 
@@ -207,29 +188,6 @@
 
 	</div><!-- main container -->
 
-	<script src="videoPlayer.js"></script>
-
-	<script>
-		// Disable autoplay on mobile, allow on desktop
-		document.addEventListener("DOMContentLoaded", function () {
-			const videos = document.querySelectorAll("video[autoplay]");
-			if (window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
-				// Mobile device detected: disable autoplay
-				videos.forEach(video => {
-					video.removeAttribute("autoplay");
-					video.pause();
-				});
-			} else {
-				// Desktop: allow muted autoplay
-				videos.forEach(video => {
-					if (video.muted) {
-						video.play().catch(() => { /* ignore autoplay restrictions */ });
-					}
-				});
-			}
-		});
-	</script>
-
 	<script>
 		// Highlight.js init
 		if (window.hljs) {
@@ -239,7 +197,34 @@
 				window.setTimeout(function () { hljs.initHighlighting(); }, 0);
 			}
 		}
+
+		// Bootstrap tables
+		function bootstrapStylePandocTables() {
+			$('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+		}
+		$(document).ready(function () {
+			bootstrapStylePandocTables();
+		});
+
+		// Tabsets
+		$(document).ready(function () {
+			window.buildTabsets("TOC");
+		});
+		$(document).ready(function () {
+			$('.tabset-dropdown > .nav-tabs > li').click(function () {
+				$(this).parent().toggleClass('nav-tabs-open');
+			});
+		});
+
+		// Load MathJax
+		(function () {
+			var script = document.createElement("script");
+			script.type = "text/javascript";
+			script.src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+			document.getElementsByTagName("head")[0].appendChild(script);
+		})();
 	</script>
 
 </body>
+
 </html>
