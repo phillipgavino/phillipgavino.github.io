@@ -104,7 +104,7 @@ iframe {
 }
 
 #header {
-  padding-top: 80px; /* pushes the project title below the fixed navbar */
+  margin-top: 80px; /* pushes the project title below the fixed navbar */
 }
 
 
@@ -187,6 +187,9 @@ iframe {
 }
 
 @media (max-width: 768px) {
+	#header {
+		margin-top:60px;
+	}
 	#overlay h1 {
 		font-size: 2rem;
 	}
