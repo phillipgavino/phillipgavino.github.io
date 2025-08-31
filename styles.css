@@ -242,3 +242,27 @@ iframe {
 	color: #555;
 	line-height: 1.5;
 }
+
+.reports a {
+	font-size: 1.75rem;
+	font-weight: 600;
+	color: #bf5700;
+	text-decoration: none;
+}
+
+.reports a:hover {
+	text-decoration: underline;
+}
+
+.presentations a {
+	font-size: 1.75rem;
+	font-weight: 600;
+	color: #bf5700;
+	text-decoration: none;
+	display: block;
+	margin: 1rem 0;
+}
+
+.presentations a:hover {
+	text-decoration: underline;
+}
