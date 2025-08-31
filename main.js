@@ -35,7 +35,7 @@ function loadSTL(path, color, xOffset) {
             const material = new THREE.MeshPhongMaterial({ color, shininess: 80 });
             const mesh = new THREE.Mesh(geometry, material);
 
-            mesh.position.set(xOffset, -1, 1); // offset for separation
+            mesh.position.set(xOffset, -1.5, 1.5); // offset for separation
             mesh.rotation.x = -Math.PI / 2;
 
             meshes.push(mesh);

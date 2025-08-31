@@ -112,7 +112,7 @@ iframe {
 
 /* Round Avatar */
 .img-circle {
-	border-radius: 50%;
+	border-radius: 100%;
 }
 
 /* ===== Video Container ===== */
@@ -218,7 +218,7 @@ iframe {
 }
 
 .card h3 {
-	font-size: 1.4rem;
+	font-size: 2rem;
 	font-weight: 600;
 	margin-bottom: 0.5rem;
 }
@@ -238,7 +238,7 @@ iframe {
 }
 
 .card p {
-	font-size: 0.95rem;
+	font-size: 1.5rem;
 	color: #555;
 	line-height: 1.5;
 }
