@@ -28,6 +28,11 @@ function centerGroup(group) {
     group.position.sub(center); // move so group is centered at (0,0,0)
 }
 
+// Decide spacing based on screen size
+function getOffset() {
+    return window.innerWidth < 768 ? 1 : 2; // mobile vs PC
+}
+
 // Load STL and return a Promise
 function loadSTL(path, color, xOffset) {
     return new Promise((resolve) => {
@@ -47,8 +52,8 @@ function loadSTL(path, color, xOffset) {
 
 // Load both STLs, then center group
 Promise.all([
-    loadSTL("ut_longhorn.stl", 0xff5733, -1.5),
-    loadSTL("ut_longhorn.stl", 0x004a9f, 1.5),
+    loadSTL("ut_longhorn.stl", 0xff5733, -getOffset()),
+    loadSTL("ut_longhorn.stl", 0x004a9f, getOffset()),
 ]).then(() => {
     centerGroup(stlGroup);
 });
@@ -66,6 +71,13 @@ function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
+
+    // adjust spacing dynamically
+    const offset = getOffset();
+    if (meshes.length === 2) {
+        meshes[0].position.x = -offset;
+        meshes[1].position.x = offset;
+    }
 }
 window.addEventListener("resize", onWindowResize);
 
