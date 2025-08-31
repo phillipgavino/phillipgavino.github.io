@@ -47,8 +47,8 @@ function loadSTL(path, color, xOffset) {
 
 // Load both STLs, then center group
 Promise.all([
-    loadSTL("ut_longhorn.stl", 0xff5733, -1),
-    loadSTL("ut_longhorn.stl", 0x004a9f, 1),
+    loadSTL("ut_longhorn.stl", 0xff5733, -1.5),
+    loadSTL("ut_longhorn.stl", 0x004a9f, 1.5),
 ]).then(() => {
     centerGroup(stlGroup);
 });
